@@ -1,0 +1,71 @@
+.header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.curita-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #8B5CF6;
+  letter-spacing: -0.02em;
+}
+
+.curita-logo::first-letter {
+  font-size: 2rem;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.icon-button:hover {
+  color: #8B5CF6;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+  
+  .curita-logo {
+    font-size: 1.5rem;
+  }
+  
+  .header-icons {
+    gap: 0.5rem;
+  }
+}
+

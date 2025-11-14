@@ -1,0 +1,29 @@
+.audio-visualizer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 12px;
+}
+
+.waveform-bars-visualizer {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.wave-bar {
+  height: 8px;
+  width: 6px;
+  min-height: 8px;
+  background: linear-gradient(to top, #9333ea, #3b82f6);
+  border-radius: 3px;
+  transition: height 0.1s ease;
+  opacity: 0.8;
+}

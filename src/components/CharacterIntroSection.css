@@ -1,0 +1,349 @@
+.character-intro-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  background-color: var(--white);
+}
+
+.character-intro-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.character-intro-section.reverse .character-intro-content {
+  direction: rtl;
+}
+
+.character-intro-section.reverse .character-intro-content > * {
+  direction: ltr;
+}
+
+.character-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.character-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.character-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.speaker-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #8B5CF6;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.speaker-button:hover {
+  background: #7C3AED;
+  transform: scale(1.1);
+}
+
+.character-description {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.shop-now-button {
+  width: 200px;
+  padding: 1rem 2rem;
+  background: #8B5CF6;
+  color: var(--white);
+  border: none;
+  border-radius: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.shop-now-button:hover {
+  background: #7C3AED;
+}
+
+.character-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mamo-large,
+.bobby-large,
+.rocky-large {
+  width: 400px;
+  height: 400px;
+}
+
+/* Reuse character styles from HeroSection but larger */
+.mamo-large .monster-body {
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mamo-large .monster-horns {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mamo-large .monster-horns::before,
+.mamo-large .monster-horns::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid #EC4899;
+}
+
+.mamo-large .monster-horns::before {
+  left: -50px;
+}
+
+.mamo-large .monster-horns::after {
+  right: -50px;
+}
+
+.mamo-large .monster-hair {
+  width: 120px;
+  height: 80px;
+  background: var(--black);
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mamo-large .monster-face {
+  width: 100px;
+  height: 60px;
+  border: 4px solid var(--white);
+  border-top: none;
+  border-radius: 0 0 50px 50px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mamo-large .monster-face::before,
+.mamo-large .monster-face::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.mamo-large .monster-face::before {
+  left: 15px;
+  top: 10px;
+}
+
+.mamo-large .monster-face::after {
+  right: 15px;
+  top: 10px;
+}
+
+.bobby-large .rocket-body {
+  width: 160px;
+  height: 240px;
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  border-radius: 80px 80px 20px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bobby-large .rocket-nose {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid #EF4444;
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bobby-large .rocket-flames {
+  width: 120px;
+  height: 100px;
+  background: linear-gradient(to top, #F97316, #FB923C);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
+
+.bobby-large .rocket-face {
+  width: 30px;
+  height: 18px;
+  border: 3px solid var(--white);
+  border-top: none;
+  border-radius: 0 0 30px 30px;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bobby-large .rocket-face::before,
+.bobby-large .rocket-face::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.bobby-large .rocket-face::before {
+  left: -20px;
+  top: 0;
+}
+
+.bobby-large .rocket-face::after {
+  right: -20px;
+  top: 0;
+}
+
+.rocky-large .puppy-body {
+  width: 240px;
+  height: 200px;
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  border-radius: 50% 50% 40% 40%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rocky-large .puppy-ears {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rocky-large .puppy-ears::before,
+.rocky-large .puppy-ears::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  border-radius: 50% 50% 50% 0;
+}
+
+.rocky-large .puppy-ears::before {
+  left: -100px;
+  transform: rotate(-20deg);
+}
+
+.rocky-large .puppy-ears::after {
+  right: -100px;
+  transform: rotate(20deg);
+}
+
+.rocky-large .puppy-face {
+  width: 50px;
+  height: 30px;
+  border: 3px solid var(--black);
+  border-top: none;
+  border-radius: 0 0 50px 50px;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rocky-large .puppy-face::before,
+.rocky-large .puppy-face::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--black);
+  border-radius: 50%;
+}
+
+.rocky-large .puppy-face::before {
+  left: -20px;
+  top: 5px;
+}
+
+.rocky-large .puppy-face::after {
+  right: -20px;
+  top: 5px;
+}
+
+@media (max-width: 968px) {
+  .character-intro-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .character-intro-section.reverse .character-intro-content {
+    direction: ltr;
+  }
+  
+  .character-title {
+    font-size: 2rem;
+  }
+  
+  .mamo-large,
+  .bobby-large,
+  .rocky-large {
+    width: 300px;
+    height: 300px;
+  }
+}
+

@@ -1,0 +1,333 @@
+.hero-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4.5rem;
+  font-weight: 700;
+  color: var(--black);
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  color: var(--gray);
+  margin-bottom: 4rem;
+  line-height: 1.5;
+}
+
+.hero-characters {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.character-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.character-image {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--black);
+  margin: 0;
+}
+
+/* Bobby (Rocket) */
+.rocket-body {
+  width: 80px;
+  height: 120px;
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  border-radius: 40px 40px 10px 10px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rocket-nose {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid #EF4444;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rocket-flames {
+  width: 60px;
+  height: 50px;
+  background: linear-gradient(to top, #F97316, #FB923C);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.8;
+}
+
+.rocket-face {
+  width: 20px;
+  height: 12px;
+  border: 2px solid var(--white);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rocket-face::before,
+.rocket-face::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.rocket-face::before {
+  left: -15px;
+  top: 0;
+}
+
+.rocket-face::after {
+  right: -15px;
+  top: 0;
+}
+
+/* Mamo (Monster) */
+.monster-body {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.monster-horns {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.monster-horns::before,
+.monster-horns::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #EC4899;
+}
+
+.monster-horns::before {
+  left: -25px;
+}
+
+.monster-horns::after {
+  right: -25px;
+}
+
+.monster-hair {
+  width: 60px;
+  height: 40px;
+  background: var(--black);
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.monster-face {
+  width: 50px;
+  height: 30px;
+  border: 3px solid var(--white);
+  border-top: none;
+  border-radius: 0 0 50px 50px;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.monster-face::before,
+.monster-face::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.monster-face::before {
+  left: 10px;
+  top: 5px;
+}
+
+.monster-face::after {
+  right: 10px;
+  top: 5px;
+}
+
+.sparkles {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+}
+
+.sparkle {
+  display: inline-block;
+  font-size: 1.2rem;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle:nth-child(2) {
+  animation-delay: 0.5s;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Rocky (Puppy) */
+.puppy-body {
+  width: 120px;
+  height: 100px;
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  border-radius: 50% 50% 40% 40%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.puppy-ears {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.puppy-ears::before,
+.puppy-ears::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  background: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  border-radius: 50% 50% 50% 0;
+}
+
+.puppy-ears::before {
+  left: -50px;
+  transform: rotate(-20deg);
+}
+
+.puppy-ears::after {
+  right: -50px;
+  transform: rotate(20deg);
+}
+
+.puppy-face {
+  width: 30px;
+  height: 20px;
+  border: 2px solid var(--black);
+  border-top: none;
+  border-radius: 0 0 30px 30px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.puppy-face::before,
+.puppy-face::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--black);
+  border-radius: 50%;
+}
+
+.puppy-face::before {
+  left: -15px;
+  top: 5px;
+}
+
+.puppy-face::after {
+  right: -15px;
+  top: 5px;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-characters {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .character-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+

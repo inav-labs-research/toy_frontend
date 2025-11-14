@@ -1,0 +1,14 @@
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+.hero-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+

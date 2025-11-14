@@ -1,0 +1,68 @@
+.call-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  color: var(--white);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-start {
+  background-color: var(--inav-green);
+  color: var(--black);
+}
+
+.btn-start:hover {
+  background-color: var(--inav-green-dark);
+}
+
+.btn-mute {
+  background-color: var(--gray);
+  color: var(--white);
+}
+
+.btn-mute:hover {
+  background-color: #555;
+}
+
+.btn-mute.muted {
+  background-color: #ff4444;
+}
+
+.btn-mute.muted:hover {
+  background-color: #cc0000;
+}
+
+.btn-end {
+  background-color: #ff4444;
+  color: var(--white);
+}
+
+.btn-end:hover {
+  background-color: #cc0000;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
