@@ -39,7 +39,9 @@ const AudioVisualizer = ({ isActive, analyser, responseAnalyser }: AudioVisualiz
             if (!micDataRef.current) {
               micDataRef.current = new Uint8Array(analyser.frequencyBinCount)
             }
-            analyser.getByteFrequencyData(micDataRef.current)
+            const micBuffer = new Uint8Array(analyser.frequencyBinCount)
+            analyser.getByteFrequencyData(micBuffer)
+            micDataRef.current = micBuffer
             data = micDataRef.current
           }
 
@@ -49,7 +51,9 @@ const AudioVisualizer = ({ isActive, analyser, responseAnalyser }: AudioVisualiz
                 responseAnalyser.frequencyBinCount
               )
             }
-            responseAnalyser.getByteFrequencyData(responseDataRef.current)
+            const responseBuffer = new Uint8Array(responseAnalyser.frequencyBinCount)
+            responseAnalyser.getByteFrequencyData(responseBuffer)
+            responseDataRef.current = responseBuffer
             if (data && responseDataRef.current) {
               for (let i = 0; i < data.length; i++) {
                 data[i] = Math.max(data[i], responseDataRef.current[i])

@@ -8,8 +8,7 @@ const GradientBanner = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.8
       }
     }
   }
@@ -22,8 +21,7 @@ const GradientBanner = () => {
       rotate: 0,
       transition: {
         duration: 0.8,
-        delay: 0.3,
-        ease: [0.22, 1, 0.36, 1]
+        delay: 0.3
       }
     },
     hover: {

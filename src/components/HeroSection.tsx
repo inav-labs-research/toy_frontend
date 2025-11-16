@@ -19,8 +19,7 @@ const HeroSection = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.6
       }
     }
   }
@@ -31,8 +30,7 @@ const HeroSection = () => {
       scale: 1.15,
       y: -10,
       transition: {
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.4
       }
     }
   }

@@ -7,8 +7,7 @@ const VideoSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.8
       }
     }
   }
@@ -18,8 +17,7 @@ const VideoSection = () => {
     hover: {
       scale: 1.1,
       transition: {
-        duration: 0.3,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.3
       }
     },
     tap: { scale: 0.95 }

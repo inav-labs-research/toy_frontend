@@ -40,8 +40,7 @@ const WhyForKidsSection = () => {
       opacity: 1,
       x: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.6
       }
     }
   }
@@ -86,8 +85,7 @@ const WhyForKidsSection = () => {
                   scale: index === currentIndex ? 1 : 0.9
                 }}
                 transition={{
-                  duration: 0.5,
-                  ease: [0.22, 1, 0.36, 1]
+                  duration: 0.5
                 }}
               >
                 <div className="card-icon">{card.icon}</div>
