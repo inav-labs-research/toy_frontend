@@ -7,14 +7,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/test_websocket" element={
+        <Route path="/" element={
     <div className="app">
       <main className="main-content">
         <CallInterface />
       </main>
     </div>
         } />
+        <Route path="/page" element={<LandingPage />} />
       </Routes>
     </Router>
   )
