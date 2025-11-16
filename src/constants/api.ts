@@ -3,15 +3,14 @@
 // Configuration for connecting to backend
 export const API_CONFIG = {
   // Backend WebSocket URL
-  // Use wss:// for HTTPS (production) or ws:// for HTTP (local development)
-  // If using nginx: ws://43.205.99.81 (port 80)
-  // If direct access: ws://43.205.99.81:5050
-  WS_URL: 'ws://49.36.116.19:5050',
+  // Using Cloudflare tunnel for secure WebSocket connection (wss://)
+  // For local development, use: ws://localhost:5050
+  WS_URL: 'wss://programs-dramatic-walt-bradford.trycloudflare.com',
 
   // Backend HTTP URL (if needed for REST API calls)
-  // If using nginx: http://43.205.99.81 (port 80)
-  // If direct access: http://43.205.99.81:5050
-  HTTP_URL: 'http://49.36.116.19:5050',
+  // Using Cloudflare tunnel for HTTPS
+  // For local development, use: http://localhost:5050
+  HTTP_URL: 'https://programs-dramatic-walt-bradford.trycloudflare.com',
   
   // WebSocket endpoint path
   WS_ENDPOINT: '/api/media-stream',

@@ -1,4 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react'
+import { buildWebSocketUrl } from '../constants/api'
 
 interface UseWebSocketOptions {
   agentId?: string
@@ -19,12 +20,9 @@ export const useWebSocket = (options: UseWebSocketOptions = {}) => {
     }
 
     try {
-      const params = new URLSearchParams()
-      if (agentId) {
-        params.append('agent_id', agentId)
-      }
-      // Use backend API IP address (from deployment) instead of localhost for WebSocket.
-      const wsUrl = `ws://49.36.116.19/api/media-stream?${params.toString()}`
+      // Use Cloudflare tunnel URL (wss://) for secure WebSocket connection
+      const wsUrl = buildWebSocketUrl(agentId)
+      console.log('[FRONTEND] Connecting to WebSocket:', wsUrl)
       const ws = new WebSocket(wsUrl)
 
       ws.onopen = () => {
@@ -62,14 +60,21 @@ export const useWebSocket = (options: UseWebSocketOptions = {}) => {
   }, [])
 
   const send = useCallback((data: ArrayBuffer | Blob | string) => {
-    if (socketRef.current?.readyState === WebSocket.OPEN) {
+    if (!socketRef.current) {
+      console.warn('[FRONTEND] WebSocket not initialized, cannot send data. Call connect() first.')
+      return
+    }
+    
+    if (socketRef.current.readyState === WebSocket.OPEN) {
       socketRef.current.send(data)
       // Only log non-audio messages to avoid spam
       if (typeof data === 'string') {
         console.log('[FRONTEND] Sent message to backend:', data)
       }
     } else {
-      console.warn('[FRONTEND] WebSocket is not open, cannot send data. State:', socketRef.current?.readyState)
+      const state = socketRef.current.readyState
+      const stateNames = ['CONNECTING', 'OPEN', 'CLOSING', 'CLOSED']
+      console.warn(`[FRONTEND] WebSocket is not open, cannot send data. State: ${state} (${stateNames[state] || 'UNKNOWN'})`)
     }
   }, [])
 

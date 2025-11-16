@@ -191,12 +191,19 @@ const CallInterface = () => {
       audioChunkCountRef.current = 0
       micNodeRef.current.port.onmessage = (event) => {
         if (!isMuted && event.data) {
-          // send() function already checks if socket is open
-          audioChunkCountRef.current++
-          if (audioChunkCountRef.current % 100 === 0) {
-            console.log('[FRONTEND] Sent', audioChunkCountRef.current, 'audio chunks to backend')
+          // Check if WebSocket is connected before sending
+          if (socket && socket.readyState === WebSocket.OPEN) {
+            audioChunkCountRef.current++
+            if (audioChunkCountRef.current % 100 === 0) {
+              console.log('[FRONTEND] Sent', audioChunkCountRef.current, 'audio chunks to backend')
+            }
+            send(event.data)
+          } else {
+            // WebSocket not ready yet, skip this chunk
+            if (audioChunkCountRef.current === 0) {
+              console.log('[FRONTEND] WebSocket not ready, waiting for connection...')
+            }
           }
-          send(event.data)
         } else if (isMuted && audioChunkCountRef.current === 0) {
           console.log('[FRONTEND] Audio muted, skipping send')
         }
@@ -247,19 +254,39 @@ const CallInterface = () => {
         stopWakeWordListening()
       }
       
-      await initializeAudio()
+      // Connect WebSocket FIRST before initializing audio
+      // This ensures the socket is ready when audio chunks start arriving
+      console.log('[CALL INTERFACE] Connecting WebSocket...')
       connect()
+      
+      // Wait for WebSocket to connect (polling approach, max 5 seconds)
+      let connected = false
+      for (let i = 0; i < 50; i++) {
+        await new Promise(resolve => setTimeout(resolve, 100))
+        if (socket && socket.readyState === WebSocket.OPEN) {
+          connected = true
+          break
+        }
+      }
+      
+      if (!connected) {
+        throw new Error('WebSocket connection failed or timed out')
+      }
+      
+      console.log('[CALL INTERFACE] WebSocket connected, initializing audio...')
+      
+      await initializeAudio()
       setIsCallActive(true)
       setCallDuration(0)
     } catch (error) {
       console.error('Error starting call:', error)
-      alert('Failed to start call. Please check microphone permissions.')
+      alert('Failed to start call. Please check microphone permissions and WebSocket connection.')
       // Restart wake word detection if call failed
       if (wakeWordEnabled && !isCallActive) {
         startWakeWordListening()
       }
     }
-  }, [initializeAudio, connect, wakeWordEnabled, stopWakeWordListening, startWakeWordListening, isCallActive])
+  }, [initializeAudio, connect, wakeWordEnabled, stopWakeWordListening, startWakeWordListening, isCallActive, socket])
 
   const endCall = useCallback(() => {
     disconnect()
