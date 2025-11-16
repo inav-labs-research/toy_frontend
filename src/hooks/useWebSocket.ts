@@ -23,8 +23,8 @@ export const useWebSocket = (options: UseWebSocketOptions = {}) => {
       if (agentId) {
         params.append('agent_id', agentId)
       }
-
-      const wsUrl = `ws://localhost:5050/api/media-stream?${params.toString()}`
+      // Use backend API IP address (from deployment) instead of localhost for WebSocket.
+      const wsUrl = `ws://43.205.99.81/api/media-stream?${params.toString()}`
       const ws = new WebSocket(wsUrl)
 
       ws.onopen = () => {
